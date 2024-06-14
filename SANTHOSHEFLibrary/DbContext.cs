@@ -14,6 +14,6 @@ namespace SANTHOSHEFLibrary
         {
 
         }
-        public virtual DbSet<District> DistrictsEF();
+        public virtual DbSet<District> DistrictsEF { get; set; }
     }
 }

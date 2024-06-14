@@ -16,7 +16,7 @@ namespace SANTHOSHEFLibrary
         }
        public  IEnumerable<District> Showall()
         {
-            return  
+            return reference.DistrictsEF.ToList();
         }
     }
 }
