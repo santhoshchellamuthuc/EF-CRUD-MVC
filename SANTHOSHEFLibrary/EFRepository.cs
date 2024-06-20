@@ -14,9 +14,10 @@ namespace SANTHOSHEFLibrary
         {
             reference = referadding;
         }
-       public  IEnumerable<District> Showall()
+       
+       public  IEnumerable<ConstituteDetails> Showall()
         {
-            return reference.DistrictsEF.ToList();
+            return reference.ConstituteDetailsEF.ToList();
         }
     }
 }

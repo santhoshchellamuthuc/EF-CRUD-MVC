@@ -14,6 +14,7 @@ namespace SANTHOSHEFLibrary
         {
 
         }
+        public virtual DbSet<ConstituteDetails> ConstituteDetailsEF { get; set; }
         public virtual DbSet<District> DistrictsEF { get; set; }
     }
 }

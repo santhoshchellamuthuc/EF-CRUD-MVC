@@ -9,6 +9,8 @@ namespace SANTHOSHEFLibrary
 {
   public  interface IEFRepot
     {
-        public IEnumerable<District> Showall();
+       
+        public IEnumerable<ConstituteDetails> Showall();
+
     }
 }

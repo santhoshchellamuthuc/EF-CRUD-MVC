@@ -1,11 +1,14 @@
 ﻿using SANTHOSHEFLibrary.Entity;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace SANTHOSHEFLibrary
 {
     public class ConstituteDetails
     {
+
+        [Key]
         public long ConstituteID { get; set; }
         public string ConstitueName { get; set; }
         public long TotalNumberOfVoters { get; set; }
