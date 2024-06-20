@@ -19,75 +19,128 @@ namespace EF_CRUD_MVC.Controllers
         // GET: ConstituteController
         public ActionResult List()
         {
-            return View("List",refer.Showall());
+            try
+            {
+                return View("List", refer.Showall());
+            }
+            catch(Exception)
+            {
+                return View("Error");
+            }
         }
 
         // GET: ConstituteController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            try
+            {
+                return View("Search", refer.Search(id));
+            }
+            catch (Exception)
+            {
+                return View("Error");
+            }
         }
 
         // GET: ConstituteController/Create
         public ActionResult Create()
         {
-            return View();
+            try
+            {
+                return View("Insert", new ConstituteDetails());
+            }catch(Exception)
+            {
+                return View("Error");
+            }
         }
 
         // POST: ConstituteController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(ConstituteDetails create)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    refer.Insert(create);
+                    return RedirectToAction(nameof(List));
+                }
+                else
+                {
+                    return View("Error");
+                }
+               
             }
-            catch
+            catch(Exception ex)
             {
-                return View();
+                return View("Error", " Operation does not reached");
             }
         }
 
         // GET: ConstituteController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            try
+            {
+                return View("Edit", refer.Search(id));
+            }
+            catch (Exception)
+            {
+                return View("Error");
+            }
         }
 
         // POST: ConstituteController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(ConstituteDetails update)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    refer.Edit(update);
+                    return RedirectToAction(nameof(List));
+                }
+                else
+                {
+                    return View("Edit", "Opration Everything Failed");
+                }
+        
             }
             catch
             {
-                return View();
+                return View("Edit"," Invailed Opration");
             }
         }
 
         // GET: ConstituteController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            try
+            {
+                return View("Delete", refer.Search(id));
+            }
+            catch (Exception)
+            {
+                return View("Error");
+            }
         }
 
         // POST: ConstituteController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(ConstituteDetails Remove)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                refer.Delete(Remove);
+                return RedirectToAction(nameof(List));
             }
-            catch
+            catch(Exception)
             {
-                return View();
+                return View("Delete","Invailed Opration");
             }
         }
     }

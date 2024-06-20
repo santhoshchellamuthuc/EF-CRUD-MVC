@@ -1,0 +1,54 @@
+﻿@model SANTHOSHEFLibrary.ConstituteDetails
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>ConstituteDetails</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ConstituteID" class="control-label"></label>
+                <input asp-for="ConstituteID" class="form-control" />
+                <span asp-validation-for="ConstituteID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConstitueName" class="control-label"></label>
+                <input asp-for="ConstitueName" class="form-control" />
+                <span asp-validation-for="ConstitueName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalNumberOfVoters" class="control-label"></label>
+                <input asp-for="TotalNumberOfVoters" class="form-control" />
+                <span asp-validation-for="TotalNumberOfVoters" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalNoOfMaleVoters" class="control-label"></label>
+                <input asp-for="TotalNoOfMaleVoters" class="form-control" />
+                <span asp-validation-for="TotalNoOfMaleVoters" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalNoOfFemaleVoters" class="control-label"></label>
+                <input asp-for="TotalNoOfFemaleVoters" class="form-control" />
+                <span asp-validation-for="TotalNoOfFemaleVoters" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="List">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

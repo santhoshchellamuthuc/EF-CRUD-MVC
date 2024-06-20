@@ -28,6 +28,10 @@ namespace EF_CRUD_MVC
             services.AddControllersWithViews();
             var connect = Configuration.GetConnectionString("Dbconnection");
             services.AddDbContext<EFDbContext>(reference => reference.UseSqlServer(connect));
+
+            //debendence injection Add//
+            services.AddTransient<IEFRepot, EFRepositry>();
+            //services.AddTransient<IEFRepot, DistrictEFRepositry>():
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

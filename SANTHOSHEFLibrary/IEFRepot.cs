@@ -11,6 +11,12 @@ namespace SANTHOSHEFLibrary
     {
        
         public IEnumerable<ConstituteDetails> Showall();
+        public void Insert(ConstituteDetails create);
+        public void Edit(ConstituteDetails update);
+        public ConstituteDetails Search(long ID);
+        public void Delete(ConstituteDetails Remove);
+        public IEnumerable<District> Show();
+
 
     }
 }
