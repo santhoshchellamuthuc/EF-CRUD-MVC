@@ -16,6 +16,7 @@ namespace SANTHOSHEFLibrary
         public ConstituteDetails Search(long ID);
         public void Delete(ConstituteDetails Remove);
         public IEnumerable<District> Show();
+        public void Set(District set);
 
 
     }

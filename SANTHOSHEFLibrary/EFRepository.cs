@@ -56,6 +56,18 @@ namespace SANTHOSHEFLibrary
                 throw;
             }
         }
-          
+        public void Set(District set)
+        {
+            try
+            {
+                reference.Add<District>(set);
+                reference.SaveChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SANTHOSHEFLibrary;
+using SANTHOSHEFLibrary.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,8 +19,15 @@ namespace EF_CRUD_MVC.Controllers
         // GET: DistrictController
         public ActionResult Showall()
         {
-           
-            return View("Show",refer.Showall());
+            try
+            {
+                return View("Show", refer.Show());
+            }
+            catch
+            {
+                return View("Error");
+            }
+
         }
 
         // GET: DistrictController/Details/5
@@ -31,17 +39,18 @@ namespace EF_CRUD_MVC.Controllers
         // GET: DistrictController/Create
         public ActionResult Create()
         {
-            return View();
+            return View("Set",new District());
         }
 
         // POST: DistrictController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(District create)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                refer.Set(create);
+                return RedirectToAction(nameof(Showall));
             }
             catch
             {

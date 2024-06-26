@@ -47,7 +47,10 @@ namespace EF_CRUD_MVC.Controllers
         {
             try
             {
-                return View("Insert", new ConstituteDetails());
+                var district = refer.Show();
+                var newmodel = new ConstituteDetails();
+                newmodel.District = district;
+                return View("Insert", newmodel);
             }catch(Exception)
             {
                 return View("Error");
@@ -72,7 +75,7 @@ namespace EF_CRUD_MVC.Controllers
                 }
                
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return View("Error", " Operation does not reached");
             }
