@@ -6,13 +6,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EF_CRUD_MVC.Controllers
+namespace EF_CRUD_MVC.Controllers 
 {
     public class ConstituteController : Controller
     {
         private readonly IEFRepot refer;
 
-        public ConstituteController(IEFRepot connect)
+        public ConstituteController(IEFRepot connect)   
         {
             refer = connect;
         }
@@ -21,7 +21,15 @@ namespace EF_CRUD_MVC.Controllers
         {
             try
             {
-                return View("List", refer.Showall());
+                if (refer.Showall()== null)
+                {
+                    return View("Error");
+                }
+                else
+                {
+                    return View("List", refer.Showall());
+                   
+                }
             }
             catch(Exception)
             {

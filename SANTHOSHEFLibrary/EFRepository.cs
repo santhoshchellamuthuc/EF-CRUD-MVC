@@ -14,9 +14,9 @@ namespace SANTHOSHEFLibrary
         {
             reference = referadding;
         }
-       
-       public  IEnumerable<ConstituteDetails> Showall()
-        {
+
+        public IEnumerable<ConstituteDetails> Showall()
+         {
             return reference.ConstituteDetailsEF.ToList();
         } 
         public void Insert(ConstituteDetails create)

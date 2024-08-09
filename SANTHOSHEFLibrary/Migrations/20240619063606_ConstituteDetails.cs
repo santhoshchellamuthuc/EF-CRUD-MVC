@@ -12,7 +12,7 @@ namespace SANTHOSHEFLibrary.Migrations
                 {
                     ConstituteID = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ConstitueName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConstitueName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TotalNumberOfVoters = table.Column<long>(type: "bigint", nullable: false),
                     TotalNoOfMaleVoters = table.Column<long>(type: "bigint", nullable: false),
                     TotalNoOfFemaleVoters = table.Column<long>(type: "bigint", nullable: false),

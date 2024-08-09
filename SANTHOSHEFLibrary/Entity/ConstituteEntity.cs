@@ -11,12 +11,12 @@ namespace SANTHOSHEFLibrary
         [Key]
         public long ConstituteID { get; set; }
         [Required]
-        [Display( Name= "Constitue Name:")]
+        [Display(Name = "Constitue Name:")]
         [MaxLength(35)]
         public string ConstitueName { get; set; }
         [Required]
         [Range(1,999999999999,ErrorMessage = "Please Enter TotalNumberOfVoters")]
-        [Display(Name = " TotalNumberOfVoters:")]
+        [Display(Name = " TotalNo.Of Voters:")]
         public long TotalNumberOfVoters { get; set; }
         [Required]
         [Display(Name = "Total No.Of MaleVoters:")]
